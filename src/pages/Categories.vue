@@ -1,8 +1,8 @@
 <template>
   <div class="categories-container">
-    <h2>CATEGORIES</h2>
+    <h2 class="categories-container_title">CATEGORIES</h2>
     <router-link
-      class="router-link"
+      class="categories-container_router-link"
       v-for="(category, index) in categoryList"
       :key="index + category"
       :to="'/products'"
@@ -34,10 +34,17 @@ export default {
   flex-direction column
   align-items center
   min-height calc(100vh - 60px)
+  margin-top 110px
 
-.router-link
+.categories-container_title
+ color #14cc80
+
+.categories-container_router-link
  margin 15px 0
  font-size 20px
  text-decoration none
- color #14cc80
+ color black
+
+.categories-container_router-link:hover
+ opacity .7
 </style>

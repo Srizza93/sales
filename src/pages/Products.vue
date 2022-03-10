@@ -1,5 +1,6 @@
 <template>
   <div class="products-page">
+    <sort />
     <filters />
     <div class="products-list-container">
       <div
@@ -35,10 +36,11 @@
 
 <script>
 import Filters from "../components/Filters.vue";
+import Sort from "../components/Sort.vue";
 
 export default {
   name: "Products",
-  components: { Filters },
+  components: { Filters, Sort },
   methods: {
     toggleInfo(event) {
       const button = event.target;
@@ -51,7 +53,7 @@ export default {
   computed: {
     products() {
       if (this.$store.state.filters.length) {
-        return this.$store.state.products.filter((product) =>
+        return this.$store.getters.getProducts.filter((product) =>
           Object.values(product).some((value) => {
             return this.$store.state.filters.some(
               (filter) =>
@@ -61,7 +63,7 @@ export default {
           })
         );
       }
-      return this.$store.state.products;
+      return this.$store.getters.getProducts;
     },
   },
 };

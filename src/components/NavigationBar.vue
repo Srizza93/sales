@@ -142,4 +142,8 @@ export default {
 
 .blur-app > *:not(.navigation-bar)
  filter blur(4px)
+
+@media screen and (max-width 470px)
+ .navigation-container_links-container
+   display none
 </style>

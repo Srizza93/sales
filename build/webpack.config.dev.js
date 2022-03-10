@@ -10,7 +10,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: ["./src/app.js"],
   module: {
     rules: [
@@ -29,6 +29,10 @@ module.exports = {
       {
         test: /\.svg$/,
         use: ["vue-loader", "vue-svg-loader"],
+      },
+      {
+        test: /\.(jpg)$/i,
+        type: "asset/resource",
       },
     ],
   },
