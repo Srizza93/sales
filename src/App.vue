@@ -6,11 +6,20 @@
 </template>
 
 <script>
+import "regenerator-runtime/runtime";
 import "../assets/app.styl";
 import NavigationBar from "./components/NavigationBar.vue";
 
 export default {
   name: "App",
   components: { NavigationBar },
+  methods: {
+    dispatchApiCall() {
+      this.$store.dispatch("apiCall");
+    },
+  },
+  created() {
+    this.dispatchApiCall();
+  },
 };
 </script>

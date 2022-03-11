@@ -84,11 +84,14 @@ export default {
 
 <style lang="stylus" scoped>
 .navigation-container
+  position fixed
   display flex
   flex-direction row
   align-items center
   justify-content space-between
+  width 100%
   padding 5px 20px
+  z-index 99999
 
 .navigation-container_links-container_router-page
   padding 5px 10px
@@ -110,7 +113,7 @@ export default {
  max-width 250px
  top 0
  right -250px
- height 100%
+ height 100vh
  transition-duration .7s
  transition-timing-function linear
  background-color white

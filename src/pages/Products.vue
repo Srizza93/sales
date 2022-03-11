@@ -73,6 +73,7 @@ export default {
 .products-page
  display flex
  flex-direction column
+ margin-top 60px
 
 .products-list-container
  display flex
