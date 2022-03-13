@@ -6,4 +6,10 @@ import store from "./store/index.js";
 
 document.body.appendChild(mount());
 
-const app = createApp(App).use(router).use(store).mount(".app-root");
+const app = createApp(App);
+
+app.use(router);
+
+app.use(store);
+
+app.mount(".app-root");
