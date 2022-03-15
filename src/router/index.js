@@ -24,7 +24,7 @@ const routes = routeOptions.map((route) => {
 });
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory("/sales/"),
   base: "/",
   routes,
 });

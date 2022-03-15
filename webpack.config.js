@@ -3,7 +3,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 const HtmlWepbackPluglin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
+let config = {
   mode: "production",
   entry: {
     main: {
@@ -14,7 +14,6 @@ module.exports = {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
-    publicPath: "/",
   },
   performance: {
     hints: false,
@@ -60,4 +59,17 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
   ],
+};
+
+module.exports = (env, argv) => {
+  if (argv.mode === "development") {
+    config.output.publicPath = "/";
+    config.devtool = "inline-source-map";
+  }
+
+  if (argv.mode === "production") {
+    config.output.publicPath = "/sales/";
+  }
+
+  return config;
 };
