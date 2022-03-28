@@ -97,7 +97,7 @@ export default {
   padding 5px 10px
   margin 0 10px
   border-radius 15px
-  font-size 16px
+  font-size 20px
   color #14CC80
   text-decoration none
 
@@ -146,7 +146,7 @@ export default {
 .blur-app > *:not(.navigation-bar)
  filter blur(4px)
 
-@media screen and (max-width 470px)
+@media screen and (max-width 750px)
  .navigation-container_links-container
    display none
 </style>
