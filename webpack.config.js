@@ -15,6 +15,10 @@ let config = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
+  devtool:
+    process.env.NODE_ENV === "development"
+      ? "inline-source-map"
+      : "hidden-source-map",
   performance: {
     hints: false,
     maxEntrypointSize: 512000,

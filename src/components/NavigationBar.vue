@@ -3,7 +3,9 @@
     class="navigation-container"
     v-bind:class="{ 'blur-container': menuIsOpen }"
   >
-    <svg-logo />
+    <router-link to="/">
+      <svg-logo />
+    </router-link>
     <div class="navigation-container_links-container">
       <router-link
         class="navigation-container_links-container_router-page"

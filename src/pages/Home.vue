@@ -32,21 +32,21 @@ export default {
           id: 1,
           alt: "coffee",
           img: "backg1.jpg",
-          ad: "Notebooks",
+          ad: 'Apple MacBook Air 13,3"',
           price: 199,
         },
         {
           id: 2,
           alt: "field",
           img: "backg2.jpg",
-          ad: "Plants",
+          ad: "Monstera Clara",
           price: 1.99,
         },
         {
           id: 3,
           alt: "mountain",
           img: "backg3.jpg",
-          ad: "Holidays",
+          ad: "Holidays to Lanzarote",
           price: 499,
         },
       ],
@@ -61,6 +61,9 @@ export default {
       const actualRow = document.querySelector(`[row='${this.currentRow}']`);
       const adText = document.querySelector(".row-container_ad");
       const adsLength = document.querySelectorAll(".row-container").length;
+      if (!adText || !actualRow) {
+        return;
+      }
       if (
         window.pageYOffset + adText.offsetTop >=
           actualRow.offsetTop + actualRow.offsetHeight - adText.offsetHeight &&
@@ -115,28 +118,28 @@ export default {
   flex-direction column
   align-items center
   position fixed
-  pointer-events none
-  top 15%
-  left calc(50% - 55px)
+  top 25%
+  left 50%
+  transform: translateX(-50%);
   opacity 1
   text-align center
   transition-duration .5s
 
 .row-container_ad_title
-  font-size 46px
+  font-family Franklin Gothic Medium
+  font-size 40px
 
 .row-container_ad_offer
-  width max-content
+  min-width 250px
   padding 10px 20px
   border-radius 15px
   color white
   text-decoration none
-  border-bottom 1px solid white
   background-color #6b00ea
   cursor pointer
 
 .row-container_ad_offer:hover
-  border-bottom 2px solid white
+  opacity .7
 
 .row-container_ad_offer_price
  font-weight bold
