@@ -67,6 +67,11 @@ export default {
           name: "Categories",
           path: "/categories",
         },
+        {
+          id: 4,
+          name: "Cart",
+          path: "/cart",
+        },
       ],
     };
   },

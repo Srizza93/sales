@@ -13,6 +13,10 @@ const routeOptions = [
     path: "/categories",
     name: "Categories",
   },
+  {
+    path: "/cart",
+    name: "Cart",
+  },
 ];
 
 const routes = routeOptions.map((route) => {

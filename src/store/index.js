@@ -3,8 +3,21 @@ import { createStore } from "vuex";
 export default createStore({
   state() {
     return {
-      products: [],
+      products: [
+        {
+          title: "test",
+          price: 10,
+          description: "loret ipsum",
+          image: "test",
+          category: "test",
+          rate: {
+            rating: 1,
+            count: 1,
+          },
+        },
+      ],
       filters: [],
+      cartItems: [],
       sort: {
         type: "rating",
         sign: "-",
@@ -20,6 +33,12 @@ export default createStore({
     },
     deleteFilter(state, filter) {
       state.filters.splice(state.filters.indexOf(filter), 1);
+    },
+    addItemToCart(state, item) {
+      state.cartItems.push(item);
+    },
+    deleteItemFromCart(state, item) {
+      state.cartItems.splice(state.cartItems.indexOf(item), 1);
     },
   },
   getters: {
