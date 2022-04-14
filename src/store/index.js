@@ -8,10 +8,10 @@ export default createStore({
           title: "test",
           price: 10,
           description: "loret ipsum",
-          image: "test",
+          image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
           category: "test",
-          rate: {
-            rating: 1,
+          rating: {
+            rate: 1,
             count: 1,
           },
         },

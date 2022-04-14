@@ -5,18 +5,7 @@
       v-for="item in cartItems"
       :key="'cart-' + item.id + item.title"
     >
-      <div
-        class="item-container_image-container"
-        @mousemove="zoomIn"
-        @mouseleave="zoomOut"
-      >
-        <img
-          class="item-container_image-container_image"
-          :src="item.image"
-          :alt="item.category"
-        />
-        <div class="item-container_image-container_zoom-square"></div>
-      </div>
+      <zoom-image :photo="item" />
       <star
         v-for="star in roundedProductRate(item.rating.rate)"
         :key="star + '-star'"
@@ -46,10 +35,11 @@
 <script>
 import Chevron from "../../assets/chevron.svg";
 import Star from "../../assets/star-solid.svg";
+import ZoomImage from "../components/ZoomImage.vue";
 
 export default {
   name: "Cart",
-  components: { Chevron, Star },
+  components: { Chevron, Star, ZoomImage },
   computed: {
     cartItems() {
       return this.$store.state.cartItems;
@@ -61,44 +51,6 @@ export default {
     },
     roundedProductRate(rate) {
       return Math.round(rate);
-    },
-    zoomIn(event) {
-      const photoContainer = event.target.closest(
-        ".item-container_image-container"
-      );
-      const zoomSquare = Array.from(photoContainer.children).find((e) =>
-        e.classList.contains("item-container_image-container_zoom-square")
-      );
-      if (!zoomSquare.classList.contains("show-zoom-square")) {
-        zoomSquare.classList.add("show-zoom-square");
-      }
-      this.moveSquare(event, zoomSquare, photoContainer);
-    },
-    moveSquare(event, zoomSquare, photoContainer) {
-      const photoRects = photoContainer.getBoundingClientRect();
-      if (
-        event.clientX > photoRects.left + zoomSquare.offsetWidth / 2 &&
-        event.clientX <= photoRects.right - zoomSquare.offsetWidth / 2
-      ) {
-        zoomSquare.style.left =
-          event.clientX - 16 - zoomSquare.offsetWidth / 2 + "px";
-      }
-      if (
-        event.clientY > photoRects.top + zoomSquare.offsetHeight / 2 &&
-        event.clientY < photoRects.bottom - zoomSquare.offsetHeight / 2
-      ) {
-        zoomSquare.style.top =
-          event.clientY - photoRects.top - zoomSquare.offsetHeight / 2 + "px";
-      }
-    },
-    zoomOut(event) {
-      const photoContainer = event.target.closest(
-        ".item-container_image-container"
-      );
-      const zoomSquare = Array.from(photoContainer.children).find((e) =>
-        e.classList.contains("item-container_image-container_zoom-square")
-      );
-      zoomSquare.classList.remove("show-zoom-square");
     },
     decreaseQuantiy(item) {
       item.quantity--;
@@ -126,28 +78,6 @@ export default {
  margin 40px 10px
  border-radius 5px
  background-color white
-
-.item-container_image-container
- display flex
- position relative
-
-.item-container_image-container_image
- width: 300px;
- height: 330px;
- object-fit: contain;
- cursor pointer
-
-.item-container_image-container_zoom-square
- display none
- position absolute
- width 160px
- height 200px
- background-color blue
- opacity .3
- cursor pointer
-
-.show-zoom-square
- display block
 
 .item-container_main-details
  display flex
