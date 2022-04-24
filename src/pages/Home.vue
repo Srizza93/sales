@@ -10,7 +10,7 @@
     </div>
     <div class="row-container_ad" v-bind:class="{ 'hide-ad': hideAdtext }">
       <span class="row-container_ad_title">{{ rows[currentRow - 1].ad }}</span>
-      <router-link class="row-container_ad_offer" to="/products">
+      <router-link class="sales-button" to="/products">
         BUY FOR JUST
         <span class="row-container_ad_offer_price"
           >{{ rows[currentRow - 1].price }}€</span
@@ -128,15 +128,6 @@ export default {
 .row-container_ad_title
   font-family Franklin Gothic Medium
   font-size 40px
-
-.row-container_ad_offer
-  min-width 250px
-  padding 10px 20px
-  border-radius 15px
-  color white
-  text-decoration none
-  background-color #6b00ea
-  cursor pointer
 
 .row-container_ad_offer:hover
   opacity .7

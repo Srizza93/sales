@@ -18,11 +18,16 @@
       </button>
       <button
         class="product-container_buttons-container_button product-container_buttons-container_button-add"
-        v-bind:class="{ 'product-in-cart': product.inCart }"
+        v-if="!productIsInCart(product)"
         @click="addToCart(product)"
       >
-        <span v-if="!product.inCart">Add</span>
-        <span v-else>In Cart</span>
+        Add
+      </button>
+      <button
+        class="product-container_buttons-container_button product-container_buttons-container_button-add product-in-cart"
+        v-else
+      >
+        In Cart
       </button>
     </div>
     <div class="product-container_info-container">
@@ -78,12 +83,13 @@ export default {
       button.classList.toggle("clicked-button");
     },
     addToCart(product) {
-      if (product.inCart) {
+      if (this.productIsInCart(product)) {
         return;
       }
-      product.inCart = true;
-      product.quantity = 1;
       this.$store.commit("addItemToCart", product);
+    },
+    productIsInCart(product) {
+      return Array.from(this.$store.state.cartItems).includes(product);
     },
     capitalizeProductCategory(category) {
       return category.substring(0, 1).toUpperCase() + category.substring(1);

@@ -11,7 +11,7 @@ export default createStore({
           image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
           category: "test",
           rating: {
-            rate: 1,
+            rate: 2,
             count: 1,
           },
         },
@@ -35,10 +35,11 @@ export default createStore({
       state.filters.splice(state.filters.indexOf(filter), 1);
     },
     addItemToCart(state, item) {
+      item.quantity = 1;
       state.cartItems.push(item);
     },
-    deleteItemFromCart(state, item) {
-      state.cartItems.splice(state.cartItems.indexOf(item), 1);
+    deleteItemInCart(state, itemToDelete) {
+      state.cartItems.splice(state.cartItems.indexOf(itemToDelete), 1);
     },
   },
   getters: {

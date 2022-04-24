@@ -63,9 +63,11 @@ let config = {
 };
 
 module.exports = (env, argv) => {
-  if (argv.mode === "production") {
-    config.output.publicPath = "/sales/";
+  if (argv.mode === "development") {
+    config.devtool = "inline-source-map";
+    return config;
   }
+  config.output.publicPath = "/sales/";
 
   return config;
 };

@@ -86,6 +86,7 @@ export default {
 .photo-container
  display flex
  position relative
+ width min-content
  height min-content
 
 .photo-container_image
@@ -115,4 +116,16 @@ export default {
 
 .show-hidden-element
  display block
+
+@media screen and (max-width 700px)
+  .photo-container_zoom
+    top 240px
+    left 0
+    width 200px
+    height 200px
+
+@media screen and (max-width 350px)
+  .photo-container_image
+    width 200px
+    height 140px
 </style>
