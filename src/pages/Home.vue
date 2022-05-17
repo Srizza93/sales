@@ -10,7 +10,11 @@
     </div>
     <div class="row-container_ad" v-bind:class="{ 'hide-ad': hideAdtext }">
       <span class="row-container_ad_title">{{ rows[currentRow - 1].ad }}</span>
-      <router-link class="sales-button" to="/products">
+      <router-link
+        class="sales-button"
+        to="/products"
+        @click="addFilter(rows[currentRow - 1].ad)"
+      >
         BUY FOR JUST
         <span class="row-container_ad_offer_price"
           >{{ rows[currentRow - 1].price }}€</span
@@ -32,22 +36,22 @@ export default {
           id: 1,
           alt: "coffee",
           img: "backg1.jpg",
-          ad: 'Apple MacBook Air 13,3"',
-          price: 199,
+          ad: "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
+          price: 599,
         },
         {
           id: 2,
           alt: "field",
           img: "backg2.jpg",
-          ad: "Monstera Clara",
-          price: 1.99,
+          ad: "White Gold Plated Princess",
+          price: 9.99,
         },
         {
           id: 3,
           alt: "mountain",
           img: "backg3.jpg",
-          ad: "Holidays to Lanzarote",
-          price: 499,
+          ad: "Mens Cotton Jacket",
+          price: 55.99,
         },
       ],
     };
@@ -91,6 +95,9 @@ export default {
       } else {
         this.hideAdtext = false;
       }
+    },
+    addFilter(filter) {
+      this.$store.commit("addFilter", filter.toUpperCase());
     },
   },
   mounted() {

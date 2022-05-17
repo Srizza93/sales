@@ -26,17 +26,6 @@ export default {
   components: { Filters, Product, Sort },
   computed: {
     products() {
-      if (this.$store.state.filters.length) {
-        return this.$store.getters.getProducts.filter((product) =>
-          Object.values(product).some((value) => {
-            return this.$store.state.filters.some(
-              (filter) =>
-                filter ===
-                (typeof value === "string" ? value.toUpperCase() : value)
-            );
-          })
-        );
-      }
       return this.$store.getters.getProducts;
     },
   },

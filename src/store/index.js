@@ -44,7 +44,19 @@ export default createStore({
   },
   getters: {
     getProducts(state) {
-      return state.products.sort((a, b) => {
+      let products = state.products;
+      if (state.filters.length > 0) {
+        products = products.filter((product) =>
+          Object.values(product).some((value) => {
+            return state.filters.some(
+              (filter) =>
+                filter ===
+                (typeof value === "string" ? value.toUpperCase() : value)
+            );
+          })
+        );
+      }
+      return products.sort((a, b) => {
         if (state.sort.sign === "+") {
           const bridge = a;
           a = b;

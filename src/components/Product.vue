@@ -6,7 +6,7 @@
       :alt="product.category"
     />
     <span class="product-container_price"
-      >{{ product.price }}
+      >{{ fixedPrice }}
       <span class="product-container_price_currency">EUR</span></span
     >
     <div class="product-container_buttons-container">
@@ -74,6 +74,11 @@ export default {
       required: true,
     },
   },
+  computed: {
+    fixedPrice() {
+      return this.$props.product.price.toFixed(2);
+    },
+  },
   methods: {
     toggleInfo(event) {
       const button = event.target;
@@ -95,7 +100,7 @@ export default {
       return category.substring(0, 1).toUpperCase() + category.substring(1);
     },
     roundedProductRate(rate) {
-      return Math.round(rate);
+      return Math.floor(rate);
     },
   },
 };

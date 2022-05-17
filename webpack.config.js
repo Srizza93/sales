@@ -45,7 +45,7 @@ let config = {
         use: ["vue-loader", "vue-svg-loader"],
       },
       {
-        test: /\.(jpg)$/i,
+        test: /\.(jpg|png)$/i,
         type: "asset/resource",
       },
     ],
@@ -63,11 +63,13 @@ let config = {
 };
 
 module.exports = (env, argv) => {
-  if (argv.mode === "development") {
-    config.devtool = "inline-source-map";
-    return config;
+  // if (argv.mode === "development") {
+  //   config.devtool = "inline-source-map";
+  // }
+
+  if (argv.mode === "production") {
+    config.output.publicPath = "/sales/";
   }
-  config.output.publicPath = "/sales/";
 
   return config;
 };

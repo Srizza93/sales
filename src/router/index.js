@@ -21,6 +21,10 @@ const routeOptions = [
     path: "/payment/:amount",
     name: "Payment",
   },
+  {
+    path: "/end-purchase/:email",
+    name: "EndPurchase",
+  },
 ];
 
 const routes = routeOptions.map((route) => {

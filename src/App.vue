@@ -23,3 +23,8 @@ export default {
   },
 };
 </script>
+
+<style lang="stylus" scoped>
+.app-container
+ padding-bottom 60px
+</style>

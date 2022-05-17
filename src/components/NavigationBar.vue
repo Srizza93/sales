@@ -97,6 +97,7 @@ export default {
   align-items center
   justify-content space-between
   width 100%
+  height 65px
   padding 5px 20px
   z-index 99999
 
