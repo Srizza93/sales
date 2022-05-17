@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksales=self.webpackChunksales||[]).push([[662],{599:(e,a,n)=>{n.r(a),n.d(a,{default:()=>r});var s=n(229),t=n(502);const u={name:"Payment"},r=(0,n(21).Z)(u,[["render",function(e,a,n,u,r,l){return(0,s.wg)(),(0,s.iD)("div",null,"Payment "+(0,t.zw)(e.$route.params.amount),1)}]])}}]);
