@@ -9,6 +9,23 @@
       >{{ fixedPrice }}
       <span class="product-container_price_currency">EUR</span></span
     >
+    <div class="product-container_ratings">
+      <div class="product-container_ratings_star-container">
+        <span class="product-container_ratings_star-container_number">
+          {{ product.rating.rate }}</span
+        >
+        <star
+          v-for="star in roundedProductRate(product.rating.rate)"
+          :key="star + '-star'"
+        />
+      </div>
+      <div class="product-container_ratings_amount">
+        <span class="product-container_ratings_amount_number">{{
+          product.rating.count
+        }}</span>
+        <span>Reviews</span>
+      </div>
+    </div>
     <div class="product-container_buttons-container">
       <button
         class="product-container_buttons-container_button"
@@ -31,26 +48,6 @@
       </button>
     </div>
     <div class="product-container_info-container">
-      <div class="product-container_info-container_ratings">
-        <div class="product-container_info-container_ratings_star-container">
-          <span
-            class="product-container_info-container_ratings_star-container_number"
-          >
-            {{ product.rating.rate }}</span
-          >
-          <star
-            v-for="star in roundedProductRate(product.rating.rate)"
-            :key="star + '-star'"
-          />
-        </div>
-        <div class="product-container_info-container_ratings_amount">
-          <span
-            class="product-container_info-container_ratings_amount_number"
-            >{{ product.rating.count }}</span
-          >
-          <span>Reviews</span>
-        </div>
-      </div>
       <span class="product-container_info-container_category">{{
         capitalizeProductCategory(product.category)
       }}</span>
@@ -119,6 +116,7 @@ export default {
 
 .product-container_image
  width 100%
+ max-width 230px
  height 330px
  object-fit contain
 
@@ -156,35 +154,35 @@ export default {
   flex-direction column
   margin-top 30px
 
-.product-container_info-container_ratings
+.product-container_ratings
  display flex
  flex-direction row
  align-items baseline
  margin-bottom 10px
 
-.product-container_info-container_ratings_star-container
+.product-container_ratings_star-container
  display flex
  flex-direction row
  align-items center
  margin-right 15px
 
-.product-container_info-container_ratings_star-container_number,
-.product-container_info-container_ratings_amount_number
+.product-container_ratings_star-container_number,
+.product-container_ratings_amount_number
  font-size 20px
  font-weight bold
  margin-right 5px
 
-.product-container_info-container_category
+.product-container_category
  margin-bottom 10px
 
-.product-container_info-container_description
+.product-container_description
  margin 10px 0
 
 .open-info
  display flex
 
 .product-in-cart
- background-color red
+ background-color #6b00ea
 
 .clicked-button
  background-color #136c47

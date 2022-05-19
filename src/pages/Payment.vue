@@ -43,7 +43,7 @@ export default {
  align-items center
 
 .submit-button
-  margin-top 110px
+  margin-top 150px
   padding 15px 80px
   border none
 </style>

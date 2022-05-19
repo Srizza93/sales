@@ -125,7 +125,7 @@ export default {
   flex-direction column
   align-items center
   position fixed
-  top 25%
+  top 150px
   left 50%
   transform: translateX(-50%);
   opacity 1

@@ -32,8 +32,14 @@
             v-for="page in pages"
             :key="page.id + page.name"
             :to="page.path"
-            >{{ page.name }}</router-link
           >
+            <span>{{ page.name }}</span>
+            <img
+              class="navigation-container_menu-container_dropdown_sub-container_logo"
+              :src="getImgUrl(page.logo)"
+              :alt="page.name"
+            />
+          </router-link>
           <close-button class="close-button" @click="toggleMenu" />
         </div>
       </div>
@@ -56,26 +62,34 @@ export default {
           id: 1,
           name: "Home",
           path: "/",
+          logo: "icon-home.png",
         },
         {
           id: 2,
           name: "Products",
           path: "/products",
+          logo: "products-icon.png",
         },
         {
           id: 3,
           name: "Categories",
           path: "/categories",
+          logo: "categories-icon.png",
         },
         {
           id: 4,
           name: "Cart",
           path: "/cart",
+          logo: "cart-icon.png",
         },
       ],
     };
   },
   methods: {
+    getImgUrl(pic) {
+      const path = require.context("../../assets", false, /\.png$/);
+      return path("./" + pic);
+    },
     toggleMenu() {
       this.menuIsOpen = !this.menuIsOpen;
       const app = document.querySelector(".app-container");
@@ -102,15 +116,23 @@ export default {
   z-index 99999
 
 .navigation-container_links-container_router-page
+  display inline-flex
+  justify-content space-between
+  align-items center
   padding 5px 10px
-  margin 0 10px
+  margin 20px 10px
   border-radius 15px
   font-size 20px
   color #14CC80
+  background-color transparent
   text-decoration none
 
 .navigation-container_links-container_router-page:hover
   background-color #24342e40
+
+.navigation-container_menu-container_dropdown_link
+ display flex
+ flex-direction row
 
 .navigation-menu
   border none
@@ -118,9 +140,10 @@ export default {
 
 .navigation-container_menu-container_dropdown
  position fixed
- max-width 250px
+ width 100%
+ max-width 300px
  top 0
- right -250px
+ right -300px
  height 100vh
  transition-duration .7s
  transition-timing-function linear
@@ -130,14 +153,19 @@ export default {
 .open-menu
  right 0
 
-.navigation-container_menu-container_dropdown_link:first-child
- margin-top 50px
-
 .navigation-container_menu-container_dropdown_sub-container
  display flex
  flex-direction column
- padding 20px 40px
+ padding 60px 40px
  position relative
+
+.navigation-container_menu-container_dropdown_sub-container_logo
+ display block
+ width 50px
+ height 50px
+ padding 10px
+ border-radius 15px
+ background-color #136c47
 
 .close-button
  position absolute

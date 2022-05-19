@@ -124,7 +124,7 @@ export default {
  display flex
  flex-direction column
  align-items center
- margin-top 110px
+ margin-top 150px
 
 .no-products-container
   display flex

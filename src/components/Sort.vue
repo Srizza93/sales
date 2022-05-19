@@ -1,14 +1,17 @@
 <template>
   <div class="sort-container">
-    <div
-      class="sort-container-button"
-      v-for="sort in sortOptions"
-      :key="sort.id + sort.type"
-      @click="sortProducts(sort)"
-    >
-      <span>{{ sort.level }} {{ sort.type }}</span>
-      <sort-up class="svg-sort" v-if="sort.clicked" />
-      <sort-down v-else class="svg-sort sort-off" />
+    <div class="sort-subcontainer">
+      <div
+        class="sort-container-button"
+        v-for="sort in sortOptions"
+        :key="sort.id + sort.type"
+        v-bind:class="{ 'active-button': sort.clicked }"
+        @click="sortProducts(sort)"
+      >
+        <span>{{ sort.level }} {{ sort.type }}</span>
+        <sort-up class="svg-sort" v-if="sort.clicked" />
+        <sort-down v-else class="svg-sort sort-off" />
+      </div>
     </div>
   </div>
 </template>
@@ -64,30 +67,47 @@ export default {
       }
     },
   },
+  mounted() {
+    this.sortProducts(
+      this.sortOptions.find(
+        (sort) => sort.type === "rating" && sort.level === "Highest"
+      )
+    );
+  },
 };
 </script>
 
 <style lang="stylus" scoped>
 .sort-container
  display flex
+ justify-content center
+ margin-bottom 50px
+
+.sort-subcontainer
+ display flex
  flex-direction row
  justify-content center
  align-items center
- margin-bottom 50px
- background-color #136c47
+ border 1px solid #136c47
 
 .sort-container-button
  display flex
  flex-direction row
  align-items center
+ justify-content space-between
+ width 100%
  max-width 200px
  color black
  background-color white
  padding 10px 30px
- margin 10px 20px
- border-radius 15px
+ margin 0
  font-weight bold
+ white-space nowrap
  cursor pointer
+
+.active-button
+ background-color #136c47
+ color white
 
 .sort-container-button:hover
  opacity .7
@@ -100,6 +120,6 @@ export default {
  color #C9CDD1
 
 @media screen and (max-width 750px)
- .sort-container
+ .sort-subcontainer
    flex-direction column
 </style>
