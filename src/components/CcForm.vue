@@ -192,7 +192,7 @@ export default {
 <style lang="stylus" scoped>
 .cc-form-container
   position relative
-  width 100%
+  width 90%
   max-width 500px
   margin-top 220px !important
 
@@ -293,6 +293,9 @@ export default {
  justify-content space-between
  align-items center
 
+.input-container-ccmonth, .input-container-ccyear, .input-container-cvv
+ width 25%
+
 @media screen and (max-width: 400px)
   .cc-card-img-container
     left calc(50% - 100px)
@@ -317,9 +320,11 @@ export default {
     top 90px
     left 35px
     font-size 7px
-</style>
 
-<style lang="stylus">
-.input-container-ccmonth, .input-container-ccyear, .input-container-cvv
- width 25% !important
+@media screen and (max-width: 300px)
+  .input-container-ccmonth, .input-container-ccyear, .input-container-cvv
+   width 100%
+
+  .cc-card-img-container
+    left -25px
 </style>

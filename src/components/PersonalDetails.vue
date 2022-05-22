@@ -1015,7 +1015,7 @@ export default {
           inputId: "cemail",
           name: "confirmemail",
           type: "text",
-          text: "Confirm Email Address",
+          text: "Confirm Email",
           value: "",
           valid: true,
           validationFunction: function (input, self) {
@@ -1028,10 +1028,10 @@ export default {
         },
         {
           id: 5,
-          inputId: "cregion",
-          name: "countryregion",
+          inputId: "scountry",
+          name: "country",
           type: "select",
-          text: "Country/Region",
+          text: "Country",
           options: function () {
             return countriesData.map((country) => country.name);
           },
@@ -1073,7 +1073,7 @@ export default {
 .personal-details-container
  display flex
  flex-direction column
- width 100%
+ width 90%
  max-width 500px
  padding 40px
  border-radius 15px

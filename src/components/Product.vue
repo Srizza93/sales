@@ -15,6 +15,7 @@
           {{ product.rating.rate }}</span
         >
         <star
+          class="star-rating"
           v-for="star in roundedProductRate(product.rating.rate)"
           :key="star + '-star'"
         />
@@ -110,7 +111,6 @@ export default {
  width 250px
  height min-content
  padding 10px
- margin 15px
  border-radius 5px
  background-color white
 
@@ -129,7 +129,7 @@ export default {
 
 .product-container_buttons-container
  display flex
- flex-direction row
+ flex-wrap wrap
 
 .product-container_buttons-container_button
  width 50px
@@ -153,6 +153,7 @@ export default {
   display none
   flex-direction column
   margin-top 30px
+  word-break break-word
 
 .product-container_ratings
  display flex
@@ -186,4 +187,17 @@ export default {
 
 .clicked-button
  background-color #136c47
+
+@media screen and (max-width 300px)
+ .product-container
+  width 100%
+
+  .product-container_image
+   height 230px
+
+ .product-container_ratings
+  flex-direction column
+
+  .star-rating
+   width 15px
 </style>

@@ -42,12 +42,11 @@ export default {
 .payment-details-container
  display flex
  flex-direction column
- width 100%
+ width 90%
  max-width 500px
  padding 40px
  border-radius 15px
  background-color #fff
- margin-top 110px
 
 .payment-details-container_row
  display flex
@@ -63,4 +62,11 @@ export default {
  border-radius 15px
  background-color #136c47
  color white
+
+@media screen and (max-width 300px)
+  .payment-details-container
+    padding 30px
+
+  .payment-details-container_row
+    flex-direction column
 </style>

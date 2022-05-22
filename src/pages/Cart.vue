@@ -131,7 +131,6 @@ export default {
   flex-direction column
   align-items center
   justify-content center
-  height 150px
   padding 20px 30px
   border-radius 15px
   line-height 30px
@@ -147,12 +146,13 @@ export default {
 .item-container
  display flex
  flex-direction row
- width 100%
+ width 90%
  max-width 1000px
  padding 30px
  margin 40px 10px
  border-radius 5px
  background-color white
+ word-break break-word
 
 .information-container
  display flex
@@ -191,6 +191,7 @@ export default {
  display flex
  flex-direction row
  align-items center
+ gap 15px
  margin-top auto
 
 .information-container_purchase-container_final-price
@@ -227,10 +228,22 @@ export default {
    margin-bottom 30px
 
 @media screen and (max-width 400px)
+ .item-container
+   padding 15px
+
+ .information-container
+   padding 0
+
  .information-container_purchase-container
    flex-direction column
    align-items baseline
 
+ .information-container_purchase-container_button
+   margin 0
+
  .information-container_buttons-container
    margin-bottom 30px
+
+ .information-container_buttons-container_quantity
+  margin 0 5px
 </style>

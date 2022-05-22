@@ -32,6 +32,7 @@
             v-for="page in pages"
             :key="page.id + page.name"
             :to="page.path"
+            @click="toggleMenu"
           >
             <span>{{ page.name }}</span>
             <img
@@ -86,6 +87,18 @@ export default {
     };
   },
   methods: {
+    hideBar(event) {
+      const bar = document.querySelector(".navigation-container");
+      if (window.pageYOffset > 300) {
+        if (!bar.classList.contains("hide-bar")) {
+          bar.classList.add("hide-bar");
+        }
+      } else {
+        if (bar.classList.contains("hide-bar")) {
+          bar.classList.remove("hide-bar");
+        }
+      }
+    },
     getImgUrl(pic) {
       const path = require.context("../../assets", false, /\.png$/);
       return path("./" + pic);
@@ -100,6 +113,9 @@ export default {
       app.classList.remove("blur-app");
     },
   },
+  mounted() {
+    document.addEventListener("scroll", this.hideBar);
+  },
 };
 </script>
 
@@ -113,7 +129,12 @@ export default {
   width 100%
   height 65px
   padding 5px 20px
+  transition-duration 1s
+  opacity 1
   z-index 99999
+
+.hide-bar
+  opacity 0
 
 .navigation-container_links-container_router-page
   display inline-flex
@@ -173,6 +194,28 @@ export default {
  right 0
  margin 10px
  cursor pointer
+
+@media screen and (max-width 750px)
+ .navigation-container_links-container
+   display none
+
+@media screen and (max-width 400px)
+ .navigation-container_menu-container_dropdown
+   max-width 400px
+   left 100%
+
+  .open-menu
+   left 0
+
+@media screen and (max-width 300px)
+  .navigation-container_menu-container_dropdown_link
+    flex-direction column
+
+  .navigation-container_menu-container_dropdown_sub-container_logo
+    margin-top 15px
+
+  .navigation-container_menu-container_dropdown_sub-container
+    padding 60px 20px
 </style>
 
 <style lang="stylus">
@@ -181,8 +224,4 @@ export default {
 
 .blur-app > *:not(.navigation-bar)
  filter blur(4px)
-
-@media screen and (max-width 750px)
- .navigation-container_links-container
-   display none
 </style>

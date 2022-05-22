@@ -15,6 +15,28 @@ export default createStore({
             count: 1,
           },
         },
+        {
+          title: "test2",
+          price: 10,
+          description: "loret ipsum",
+          image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+          category: "test",
+          rating: {
+            rate: 2,
+            count: 1,
+          },
+        },
+        {
+          title: "test3",
+          price: 10,
+          description: "loret ipsum",
+          image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+          category: "test",
+          rating: {
+            rate: 2,
+            count: 1,
+          },
+        },
       ],
       filters: [],
       cartItems: [],

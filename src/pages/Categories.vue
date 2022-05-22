@@ -1,14 +1,16 @@
 <template>
-  <div class="categories-container">
-    <span class="categories-container_title">CATEGORIES</span>
-    <router-link
-      class="categories-container_router-link"
-      v-for="(category, index) in categoryList"
-      :key="index + category"
-      :to="'/products'"
-      @click="commitFilter(category)"
-      >{{ category }}</router-link
-    >
+  <div class="categories">
+    <div class="categories_list">
+      <span class="categories_list_title">CATEGORIES</span>
+      <router-link
+        class="categories_list_router-link"
+        v-for="(category, index) in categoryList"
+        :key="index + category"
+        :to="'/products'"
+        @click="commitFilter(category)"
+        >{{ category }}</router-link
+      >
+    </div>
   </div>
 </template>
 
@@ -29,23 +31,41 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.categories-container
+.categories
+  display flex
+  justify-content center
+  margin-top 150px
+
+.categories_list
   display flex
   flex-direction column
   align-items center
-  min-height calc(100vh - 60px)
-  margin-top 150px
+  width 90%
+  max-width 500px
+  padding 40px 0 20px 0
+  border-radius 15px
+  background-color white
 
-.categories-container_title
+.categories_list_title
  font-size 24px
  color #14cc80
 
-.categories-container_router-link
- margin 15px 0
+.categories_list_router-link
+ width 100%
+ padding 20px 10px
  font-size 20px
+ text-align center
  text-decoration none
  color black
 
-.categories-container_router-link:hover
- opacity .7
+.categories_list_router-link:hover
+ background-color #6b00ea
+ color white
+
+@media screen and (max-width 300px)
+  .categories_list_title
+   font-size 20px
+
+  .categories_list_router-link
+   font-size 16px
 </style>

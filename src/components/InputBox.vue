@@ -80,4 +80,8 @@ export default {
 @media screen and (max-width 430px)
   .input-container
     width 100%
+
+@media screen and (max-width 300px)
+  .input-container
+    margin-bottom 50px
 </style>

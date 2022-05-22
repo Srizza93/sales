@@ -96,7 +96,6 @@ export default {
  align-items center
  justify-content space-between
  width 100%
- max-width 200px
  color black
  background-color white
  padding 10px 30px
@@ -119,7 +118,14 @@ export default {
 .sort-off
  color #C9CDD1
 
-@media screen and (max-width 750px)
+@media screen and (max-width 765px)
  .sort-subcontainer
+   flex-direction column
+
+@media screen and (max-width 300px)
+ .sort-subcontainer
+  width 90%
+
+ .sort-container-button
    flex-direction column
 </style>

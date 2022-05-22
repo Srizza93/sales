@@ -128,4 +128,17 @@ export default {
   .photo-container_image
     width 200px
     height 140px
+
+  .photo-container_zoom
+    top 150px
+
+@media screen and (max-width 250px)
+  .photo-container_image
+    width 125px
+    height 85px
+
+  .photo-container_zoom
+    top 100px
+    width 125px
+    height 125px
 </style>

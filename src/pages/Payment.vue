@@ -41,9 +41,15 @@ export default {
  display flex
  flex-direction column
  align-items center
+ margin-top 150px
 
 .submit-button
   margin-top 150px
   padding 15px 80px
   border none
+  background-color #136c47
+
+@media screen and (max-width 300px)
+  .submit-button
+    padding 15px 20px
 </style>

@@ -73,10 +73,12 @@ export default {
 .outcome-container_message
  display flex
  flex-direction column
+ width 90%
+ max-width 500px
  padding 40px 60px
  margin 30px
  border-radius 15px
- background-color rgba(20,204,128,0.3)
+ background-color rgba(20,204,128,0.6)
  text-align center
  line-height 2
 
@@ -88,4 +90,8 @@ export default {
 
 .show-outcome
  display flex
+
+@media screen and (max-width 300px)
+  .outcome-container_message
+    padding 20px 15px
 </style>

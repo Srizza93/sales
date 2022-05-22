@@ -2,16 +2,12 @@
   <div class="products-page">
     <sort />
     <filters />
-    <div class="products-list-outer">
-      <div class="products-list-container">
-        <div
-          class="product-container"
-          v-for="product in products"
-          :key="product.id + product.title"
-        >
-          <product :product="product" />
-        </div>
-      </div>
+    <div class="products-list-container">
+      <product
+        v-for="product in products"
+        :key="product.id + product.title"
+        :product="product"
+      />
     </div>
   </div>
 </template>
@@ -38,27 +34,16 @@ export default {
  flex-direction column
  margin-top 150px
 
-.products-list-outer
- display flex
- justify-content center
-
 .products-list-container
- display flex
- flex-direction row
- flex-wrap wrap
- justify-content left
- width 1400px
+  display grid
+  grid-template-columns repeat(auto-fill, 250px)
+  justify-content space-evenly
+  grid-gap 30px
+  margin 0 30px
 
-@media screen and (max-width 1400px)
-  .products-list-container
-     width 1120px
-@media screen and (max-width 1120px)
-  .products-list-container
-     width 840px
-@media screen and (max-width 840px)
-  .products-list-container
-     width 560px
-@media screen and (max-width 560px)
-  .products-list-container
-     width 280px
+@media screen and (max-width 300px)
+ .products-list-container
+  grid-template-columns repeat(auto-fill, 100%)
+  grid-gap 15px
+  margin 0 15px
 </style>

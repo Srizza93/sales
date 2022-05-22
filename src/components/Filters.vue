@@ -7,7 +7,7 @@
       @click="deleteFilter(filter)"
     >
       <close-button class="close-button" />
-      <span>{{ filter }}</span>
+      <span class="filters-container_filter-div_text">{{ filter }}</span>
     </div>
   </div>
 </template>
@@ -34,25 +34,36 @@ export default {
 <style lang="stylus" scoped>
 .filters-container
  display flex
- flex-direction row
+ flex-wrap wrap
  justify-content center
+ margin 30px 0
 
 .filters-container_filter-div
  display flex
  flex-direction row
  align-items center
+ width 90%
+ max-width 300px
  padding 10px 30px
  margin 10px
  border-radius 15px
+ text-align center
  font-weight bold
+ white-space nowrap
  color white
- background-color #14cc80
+ background-color #136c47
  cursor pointer
 
 .filters-container_filter-div:hover
  opacity .7
 
 .close-button
+ flex-basis 20%
  margin-right 10px
  fill white
+
+.filters-container_filter-div_text
+ flex-basis 80%
+ text-overflow ellipsis
+ overflow hidden
 </style>
